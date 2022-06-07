@@ -93,7 +93,7 @@ extension KeyboardViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyCollectionViewCell.identifier, for: indexPath) as? KeyCollectionViewCell else { return UICollectionViewCell() }
-        cell.letter = "a"
+        cell.letter = String(keys[indexPath.section][indexPath.row]).uppercased()
         return cell
     }
 }

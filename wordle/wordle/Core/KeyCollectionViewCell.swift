@@ -35,6 +35,11 @@ class KeyCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.label.text = nil 
+    }
+    
     private func setupView() {
         self.backgroundColor = .darkGray
         self.layer.cornerRadius = 3
