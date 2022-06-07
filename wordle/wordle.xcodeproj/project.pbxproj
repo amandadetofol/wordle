@@ -12,6 +12,7 @@
 		A6C26E97284419A400574C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C26E96284419A400574C97 /* Assets.xcassets */; };
 		A6C26EA428441AAF00574C97 /* KeyBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C26EA328441AAF00574C97 /* KeyBoardViewController.swift */; };
 		A6C26EA628441ABC00574C97 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C26EA528441ABC00574C97 /* BoardViewController.swift */; };
+		A6C26EA8284421A000574C97 /* KeyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C26EA7284421A000574C97 /* KeyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A6C26E9B284419A400574C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C26EA328441AAF00574C97 /* KeyBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardViewController.swift; sourceTree = "<group>"; };
 		A6C26EA528441ABC00574C97 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		A6C26EA7284421A000574C97 /* KeyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A6C26E91284419A400574C97 /* ViewController.swift */,
 				A6C26EA328441AAF00574C97 /* KeyBoardViewController.swift */,
 				A6C26EA528441ABC00574C97 /* BoardViewController.swift */,
+				A6C26EA7284421A000574C97 /* KeyCollectionViewCell.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				A6C26EA428441AAF00574C97 /* KeyBoardViewController.swift in Sources */,
 				A6C26E92284419A400574C97 /* ViewController.swift in Sources */,
 				A6C26E8E284419A400574C97 /* AppDelegate.swift in Sources */,
+				A6C26EA8284421A000574C97 /* KeyCollectionViewCell.swift in Sources */,
 				A6C26EA628441ABC00574C97 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
