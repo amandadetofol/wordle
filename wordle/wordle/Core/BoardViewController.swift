@@ -7,10 +7,12 @@
 
 import UIKit
 
+protocol BoardViewControllerDataSource: AnyObject {
+    var currentGuesses: [[Character?]] { get }
+    func boxColor(at indexPath: IndexPath) -> UIColor?
+}
+
 class BoardViewController: UIViewController {
-    
-    var guesses: [[Character?]] = Array(repeating: Array(repeating: nil, count: 5),
-                                       count: 6)
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -32,6 +34,12 @@ class BoardViewController: UIViewController {
         self.setupConstraints()
     }
     
+    var datasource: BoardViewControllerDataSource?
+    
+    func reloadData(){
+        self.collectionView.reloadData()
+    }
+    
     private func setupView() {
         self.view.addSubview(collectionView)
     }
@@ -44,11 +52,9 @@ class BoardViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
-}
-
-extension BoardViewController: UICollectionViewDelegateFlowLayout {
     
 }
+
 
 extension BoardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -69,16 +75,25 @@ extension BoardViewController: UICollectionViewDelegate {
 extension BoardViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return guesses.count
+        return datasource?.currentGuesses.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return guesses[section].count
+        return datasource?.currentGuesses[section].count ?? 0 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyCollectionViewCell.identifier, for: indexPath) as? KeyCollectionViewCell else { return UICollectionViewCell() }
-        cell.letter = ""
+       
+        if let guesses = datasource?.currentGuesses {
+            if let letter = guesses[indexPath.section][indexPath.row] {
+                cell.letter = String(letter)
+            }
+        }
+        
+        cell.backgroundColor = datasource?.boxColor(at: indexPath) 
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.white.cgColor
         return cell
     }
 }
